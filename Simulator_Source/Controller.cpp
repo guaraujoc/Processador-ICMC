@@ -12,8 +12,7 @@ Controller::Controller(ModelInterface *model)
 	hex = false;				// comeca decimal
 	automatico = false;	// comeca manual
 	resetVideo = true;	// comeca resetando o video, quando dah reset
-	halt = false;		 
-	
+
 	view = new View(model, this);
 	reset();
 }
@@ -77,12 +76,39 @@ int Controller::charToInt(const char *string)
 	return soma;
 }
 
+bool Controller :: comparaString(const std::string& str1, const std::string& str2) {
+    if (str1.empty() || str2.empty()) {
+        // Se algum dos strings estiver vazio, retorna falso
+        return false;
+    }
+
+    std::string valorArmazenado;
+
+    for (size_t i = 0; i < str1.length(); ++i) {
+        if (str1[i] == str2[valorArmazenado.length()]) {
+            // Caracteres consecutivos iguais, armazena o valor
+            valorArmazenado += str1[i];
+        } else {
+            // Caracter diferente encontrado, reinicia a contagem
+            valorArmazenado = "";
+        }
+
+        if (valorArmazenado == str2) {
+            // Valor armazenado igual ao segundo string, retorna verdadeiro
+            return true;
+        }
+    }
+
+    // Valor n├úo encontrado
+    return false;
+}
+
 bool Controller::userInput(const char *tecla)
 {	key = 255;
 
 	if( strlen(tecla) > 1)
-	{	if( !strcmp(tecla,"End") )
-		{	if(automatico == false && halt == false)
+	{	if( !comparaString(tecla, "End") )
+		{	if(automatico == false)
 				model->processa();
 			return TRUE;
 		}
@@ -96,33 +122,14 @@ bool Controller::userInput(const char *tecla)
 		{	view->destroy(NULL, NULL); 
 			return TRUE;
 		}
-		else if( !strcmp(tecla, "Home") )
-		{	if(halt == false)
-				switchExecucao();
+		else if( !comparaString(tecla, "Home") )
+		{	switchExecucao(); 
 			return TRUE;
 		}
 		else if( !strcmp(tecla, "Insert") )
-		{	reset();
-			halt = false;
+		{	reset(); 
 			return TRUE;
 		}
-		else if( !strcmp(tecla, "Left") )
-		{	key = 14;
-			return FALSE;
-		}
-		else if( !strcmp(tecla, "Right") )
-		{	key = 15;
-			return FALSE;
-		}
-		else if( !strcmp(tecla, "Up") )
-		{	key = 16;
-			return FALSE;
-		}
-		else if( !strcmp(tecla, "Down") )
-		{	key = 17;
-			return FALSE;
-		}
-		
 		return FALSE;
 	}
 
@@ -150,7 +157,6 @@ void Controller::switchExecucao()
 		model->processa();
 		return;
 	}
-
 	view->DestravaRegs();
 	model->setProcessamento(false);
 }
@@ -159,13 +165,6 @@ void Controller::notifyProcessamento()
 { automatico = false;
 	view->DestravaRegs();
 	model->setProcessamento(false);
-}
-
-void Controller::pauseProcessamento()
-{	automatico = false;
-	view->DestravaRegs();
-	model->setProcessamento(false);
-	halt = true;	
 }
 
 void Controller::setResetVideo(bool valor)
