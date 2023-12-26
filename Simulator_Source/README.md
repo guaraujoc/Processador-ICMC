@@ -8,7 +8,11 @@ A modificação implementada garante que as teclas sejam corretamente interpreta
 # Funcionalidades Principais
 Leitura Correta de Teclas: Assegura que as teclas sejam interpretadas corretamente, independentemente das diferenças na nomenclatura utilizada por diferentes máquinas.
 
-Compatibilidade com NumLock: Permite o funcionamento adequado das teclas mesmo quando o NumLock está ativado, evitando possíveis conflitos e garantindo uma experiência de usuário consistente.
+Compatibilidade com diferentes dispositivos: Como muitos dispositivos podem apresentar diferentes leituras de uma tecla, a nova funcionalidade permite que o simulador rode o programa sem problemas em qualquer máquina quando solicitado teclas identificadas por um nome extenso.
+
+# Explicação da funcionalidade
+
+https://www.youtube.com/watch?v=MteLTN-WQa0&feature=youtu.be
 
 # Licença
 Este programa está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
