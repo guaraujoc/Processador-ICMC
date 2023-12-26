@@ -5,11 +5,11 @@ Este projeto visa aprimorar a funcionalidade de leitura de teclas em um processa
 
 A modificação implementada garante que as teclas sejam corretamente interpretadas, mesmo em cenários nos quais as variações na nomenclatura poderiam causar conflitos. Além disso, a adaptação possibilita o funcionamento adequado das teclas mesmo quando o NumLock está pressionado, proporcionando uma experiência de usuário mais fluida e intuitiva.
 
-Funcionalidades Principais
+# Funcionalidades Principais
 Leitura Correta de Teclas: Assegura que as teclas sejam interpretadas corretamente, independentemente das diferenças na nomenclatura utilizada por diferentes máquinas.
 
 Compatibilidade com NumLock: Permite o funcionamento adequado das teclas mesmo quando o NumLock está ativado, evitando possíveis conflitos e garantindo uma experiência de usuário consistente.
 
 ...
-Licença
+# Licença
 Este programa está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
