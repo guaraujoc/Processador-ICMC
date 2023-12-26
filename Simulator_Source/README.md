@@ -10,6 +10,5 @@ Leitura Correta de Teclas: Assegura que as teclas sejam interpretadas corretamen
 
 Compatibilidade com NumLock: Permite o funcionamento adequado das teclas mesmo quando o NumLock está ativado, evitando possíveis conflitos e garantindo uma experiência de usuário consistente.
 
-...
 # Licença
 Este programa está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
